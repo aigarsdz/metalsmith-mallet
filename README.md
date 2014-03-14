@@ -30,7 +30,7 @@ Metalsmith(__dirname)
 
 ## Important
 
-This is temporary name for this plugin, therefore the name of this repository is going to change as well.
+This is a temporary name for this plugin, therefore the name of this repository is going to change as well.
 
 ---
 
