@@ -1,11 +1,19 @@
 {
-  "name": "metalsmith-jekyll-mapper",
-  "version": "0.0.2",
-  "description": "A Metalsmith plugin that allows to migrate Jekyll posts to Metalsmith without any additional changes.",
+  "name": "metalsmith-mallet",
+  "version": "0.0.3",
+  "description": "A Metalsmith plugin to build Jekyll style posts.",
+  "homepage": "https://github.com/aigarsdz/metalsmith-mallet",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/aigarsdz/metalsmith-mallet"
+  },
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aigars Dzerviniks",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "metalsmith": "*"
+  }
 }
