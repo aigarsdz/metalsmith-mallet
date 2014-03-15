@@ -6,10 +6,17 @@ I like the idea behind Metalsmith. It's simplicity and pluggable architecture is
 
 ## Installation
 
-Until I publish this plugin on NPM, the only way to install it in your project is by doing it manually. First you have to download the Zip file, and then run the following command from the root folder of your project.
+Install using NPM.
 
-    npm install ~/Downloads/metalsmith-jekyll-mapper
+    npm install metalsmith-mallet
 
+Or add to the *package.json* file.
+
+```json
+"dependencies": {
+  "metalsmith-mallet": "*"
+}
+```
 
 ## Usage
 
