@@ -42,9 +42,7 @@ Metalsmith(__dirname)
 If there are Markdown files in your project's source directory that you want to process using metalsmith-mallet, specify them using `ignore` option.
 
 ```js
-var mallet     = require('metalsmith-mallet'),
-    markdown   = require('metalsmith-markdown'),
-    metalsmith = require('metalsmith');
+//...
 
 Metalsmith(__dirname)
   .use(mallet({ ignore: ['example.md'] }))
