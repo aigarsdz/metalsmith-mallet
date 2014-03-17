@@ -39,7 +39,7 @@ Metalsmith(__dirname)
   .build();
 ```
 
-If there are Markdown files in your project's source directory that you want to process using metalsmith-mallet, specify them using `ignore` option.
+If there are Markdown files in your project's source directory that you don't want to process using metalsmith-mallet, specify them using `ignore` option.
 
 ```js
 //...
