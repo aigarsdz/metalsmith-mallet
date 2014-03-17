@@ -20,7 +20,7 @@ Or add to the *package.json* file.
 
 ## Usage
 
-It is very important to run metalsmith-mallet before metalsmith-mallet plugin. Otherwise your posts won't be processed.
+It is very important to run metalsmith-mallet before metalsmith-markdown plugin. Otherwise your posts won't be processed.
 
 ### CLI Usage
 
