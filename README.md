@@ -50,6 +50,12 @@ Metalsmith(__dirname)
   .build();
 ```
 
+In addition to variables defined in the YAML Front Matter metalsmith-mallet defines `url` and `date`, so in a Handlebars template you can do something like this:
+
+
+    <time>{{ date }}</time>
+    <h1><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h1>
+
 ## TODO:
 
 - Add an option to specify a different permalink format.
