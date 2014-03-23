@@ -52,9 +52,26 @@ Metalsmith(__dirname)
 
 In addition to variables defined in the YAML Front Matter metalsmith-mallet defines `url` and `date`, so in a Handlebars template you can do something like this:
 
+```html
+<time>{{ date }}</time>
+<h1><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h1>
+```
 
-    <time>{{ date }}</time>
-    <h1><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h1>
+The value for the date is taken from the post's file name, therefore it has a format of yyyy-mm-dd. If you want to change the format, you should define a helper function for that. If you are using Handlebars, the helper function might look something like this.
+
+```js
+Handlebars.registerHelper('localeDateFrom', function (dateString) {
+    var date = new Date(dateString);
+    
+    return date.toLocaleDateString();
+});
+```
+
+Then you can use this function in a template.
+
+```html
+<time>{{localeDateFrom date}}</time>
+```
 
 ## TODO:
 
