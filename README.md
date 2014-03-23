@@ -57,7 +57,7 @@ In addition to variables defined in the YAML Front Matter metalsmith-mallet defi
 <h1><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h1>
 ```
 
-The value for the date is taken from the post's file name, therefore it has a format of yyyy-mm-dd. If you want to change the format, you should define a helper function for that. If you are using Handlebars, the helper function might look something like this.
+The value for the date is taken from the post's file name, therefore it has a format of `yyyy-mm-dd`. If you want to change the format, you should define a helper function for that. If you are using Handlebars, the helper function might look something like this.
 
 ```js
 Handlebars.registerHelper('localeDateFrom', function (dateString) {
