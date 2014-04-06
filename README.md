@@ -20,11 +20,21 @@ Or add to the *package.json* file.
 
 ## Usage
 
-It is very important to run metalsmith-mallet before metalsmith-markdown plugin. Otherwise your posts won't be processed.
+It is very important to run `metalsmith-mallet` before `metalsmith-markdown` plugin. Otherwise your posts won't be processed.
 
 ### CLI Usage
 
-Comming soon...
+Install via npm and then add the `metalsmith-mallet` key to your `metalsmith.json` plugins with a list of files you want to ignore, like so:
+
+```js
+{
+  "plugins": {
+    "metalsmith-mallet": {
+      "ignore": ["example.md"]
+    }
+  }
+}
+```
 
 ### JavaScript Usage
 
@@ -39,7 +49,7 @@ Metalsmith(__dirname)
   .build();
 ```
 
-If there are Markdown files in your project's source directory that you don't want to process using metalsmith-mallet, specify them using `ignore` option.
+If there are Markdown files in your project's source directory that you don't want to process using `metalsmith-mallet`, specify them using `ignore` option.
 
 ```js
 //...
