@@ -20,11 +20,21 @@ Or add to the *package.json* file.
 
 ## Usage
 
-It is very important to run metalsmith-mallet before metalsmith-mallet plugin. Otherwise your posts won't be processed.
+It is very important to run `metalsmith-mallet` before `metalsmith-markdown` plugin. Otherwise your posts won't be processed.
 
 ### CLI Usage
 
-Comming soon...
+Install via npm and then add the `metalsmith-mallet` key to your `metalsmith.json` plugins with a list of files you want to ignore, like so:
+
+```js
+{
+  "plugins": {
+    "metalsmith-mallet": {
+      "ignore": ["example.md"]
+    }
+  }
+}
+```
 
 ### JavaScript Usage
 
@@ -39,17 +49,38 @@ Metalsmith(__dirname)
   .build();
 ```
 
-If there are Markdown files in your project's source directory that you want to process using metalsmith-mallet, specify them using `ignore` option.
+If there are Markdown files in your project's source directory that you don't want to process using `metalsmith-mallet`, specify them using `ignore` option.
 
 ```js
-var mallet     = require('metalsmith-mallet'),
-    markdown   = require('metalsmith-markdown'),
-    metalsmith = require('metalsmith');
+//...
 
 Metalsmith(__dirname)
   .use(mallet({ ignore: ['example.md'] }))
   .use(markdown())
   .build();
+```
+
+In addition to variables defined in the YAML Front Matter metalsmith-mallet defines `url` and `date`, so in a Handlebars template you can do something like this:
+
+```html
+<time>{{ date }}</time>
+<h1><a href="{{ url }}" title="{{ title }}">{{ title }}</a></h1>
+```
+
+The value for the date is taken from the post's file name, therefore it has a format of `yyyy-mm-dd`. If you want to change the format, you should define a helper function for that. If you are using Handlebars, the helper function might look something like this.
+
+```js
+Handlebars.registerHelper('localeDateFrom', function (dateString) {
+    var date = new Date(dateString);
+    
+    return date.toLocaleDateString();
+});
+```
+
+Then you can use this function in a template.
+
+```html
+<time>{{localeDateFrom date}}</time>
 ```
 
 ## TODO:
