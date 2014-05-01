@@ -60,7 +60,7 @@ Metalsmith(__dirname)
   .build();
 ```
 
-In addition to variables defined in the YAML Front Matter metalsmith-mallet defines `url` and `date`, so in a Handlebars template you can do something like this:
+In addition to properties defined in the YAML Front Matter metalsmith-mallet defines `url`, `date` and `collection`, so in a Handlebars template you can do something like this:
 
 ```html
 <time>{{ date }}</time>
@@ -72,7 +72,7 @@ The value for the date is taken from the post's file name, therefore it has a fo
 ```js
 Handlebars.registerHelper('localeDateFrom', function (dateString) {
     var date = new Date(dateString);
-    
+
     return date.toLocaleDateString();
 });
 ```
@@ -82,6 +82,8 @@ Then you can use this function in a template.
 ```html
 <time>{{localeDateFrom date}}</time>
 ```
+
+The `collection` property makes it easier to use `metalsmith-mallet` together with `metalsmith-collections` plugin. The value is identical to the `layout` property.
 
 ## TODO:
 
