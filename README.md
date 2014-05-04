@@ -20,18 +20,16 @@ Or add to the *package.json* file.
 
 ## Usage
 
-It is very important to run `metalsmith-mallet` before `metalsmith-markdown` plugin. Otherwise your posts won't be processed.
+It is very important to run `metalsmith-mallet` before any other plugins. Otherwise your posts might not be processed correctly.
 
 ### CLI Usage
 
-Install via npm and then add the `metalsmith-mallet` key to your `metalsmith.json` plugins with a list of files you want to ignore, like so:
+Install via npm and then add the `metalsmith-mallet` key to your `metalsmith.json` plugins.
 
 ```js
 {
   "plugins": {
-    "metalsmith-mallet": {
-      "ignore": ["example.md"]
-    }
+    "metalsmith-mallet": true
   }
 }
 ```
@@ -49,18 +47,29 @@ Metalsmith(__dirname)
   .build();
 ```
 
-If there are Markdown files in your project's source directory that you don't want to process using `metalsmith-mallet`, specify them using `ignore` option.
+### Ignore option
+
+In case there are any posts that you don't want to process with `metalsmith-mallet`, you can specify them using `ignore` option.
 
 ```js
-//...
-
 Metalsmith(__dirname)
-  .use(mallet({ ignore: ['example.md'] }))
-  .use(markdown())
-  .build();
+    .use(mallet({ ignore: ["2014-04-05-random-post.md"] }))
+    .use(markdown())
+    .build();
 ```
 
-In addition to properties defined in the YAML Front Matter metalsmith-mallet defines `url`, `date` and `collection`, so in a Handlebars template you can do something like this:
+### Collection option
+
+`metalsmith-mallet` makes it easier to use `metalsmith-collections` plugin without changing the metadata of your posts by adding a `collection` property. The default value is the same as `layout`, but you can change it using `collection` option.
+
+```js
+Metalsmith(__dirname)
+    .use(mallet({ collection: "articles" }))
+    .use(markdown())
+    .build();
+```
+
+In addition to properties defined in the YAML Front Matter metalsmith-mallet defines `url` and `date`, so in a Handlebars template you can do something like this:
 
 ```html
 <time>{{ date }}</time>
@@ -82,8 +91,6 @@ Then you can use this function in a template.
 ```html
 <time>{{localeDateFrom date}}</time>
 ```
-
-The `collection` property makes it easier to use `metalsmith-mallet` together with `metalsmith-collections` plugin. The value is identical to the `layout` property.
 
 ## TODO:
 
