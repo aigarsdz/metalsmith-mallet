@@ -69,6 +69,17 @@ Metalsmith(__dirname)
     .build();
 ```
 
+### jekyllStyleLayout option
+
+`metalsmith-mallet` uses the jekyll `layout: post` syntax for layouts, adding a `.html` extension by default. You can override this behaviour by setting `jekyllStyleLayout` to `false`.
+
+```js
+Metalsmith(__dirname)
+    .use(mallet({ jekyllStyleLayout: false }))
+    .use(markdown())
+    .build();
+```
+
 In addition to properties defined in the YAML Front Matter metalsmith-mallet defines `url` and `date`, so in a Handlebars template you can do something like this:
 
 ```html
